@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  margin: 0;
+  padding: 0; }
+
+.container {
+  width: 80%;
+  margin: auto; }
+
+#title {
+  z-index: 2; }
+  #title.deactivated {
+    display: none; }
+  #title.transition {
+    position: absolute;
+    display: grid;
+    height: 100vh; }
+  #title.activated {
+    position: fixed;
+    display: grid;
+    height: 100vh; }
+
+#services.deactivated {
+  display: none; }
+
+#services.transition {
+  position: absolute;
+  height: 100vh;
+  display: grid; }
+
+#services.activated {
+  position: fixed;
+  height: 100vh;
+  display: grid; }
+
+#background #title-background {
+  z-index: 1; }
+  #background #title-background.activated {
+    position: absolute; }
+  #background #title-background.transition {
+    position: fixed; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0; }
+
+nav {
+  position: absolute;
+  width: 100%; }
+  nav ul {
+    display: grid;
+    grid-template-columns: 1fr 50vw 1fr 1fr 1fr 1fr;
+    grid-template-areas: '. . about services contact .';
+    justify-content: center;
+    align-items: center;
+    text-align: center; }
+    nav ul li {
+      padding: 20px; }
+      nav ul li.nav-aboutme {
+        grid-area: about; }
+      nav ul li.nav-services {
+        grid-area: services; }
+      nav ul li.nav-contact {
+        grid-area: contact; }
+
+#title {
+  grid-template-columns: 12.5vw 25vw 62.5vw;
+  grid-template-rows: auto 40vh auto;
+  grid-template-areas: ". . ." ". title ." ". . ."; }
+  #title #title-content {
+    grid-area: title; }
+    #title #title-content .title-maintext {
+      font-size: 5rem; }
+    #title #title-content .title-secondarytext {
+      font-size: 1.5rem; }
+
+#background {
+  height: 100vh; }
+
+main {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 100vh 100vh;
+  grid-template-areas: ". about" "services .";
+  align-items: stretch; }
+  main #about-content {
+    grid-area: about; }
+  main #services-content {
+    grid-area: services; }
+
+.contact {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 62.5vw 25vw 12.5vw;
+  grid-template-rows: auto 40vh auto;
+  grid-template-areas: ". . ." ". contact ." ". . ."; }
+  .contact form {
+    grid-area: contact; }

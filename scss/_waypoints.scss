@@ -1,0 +1,50 @@
+#title{
+    z-index: 2;
+
+    &.deactivated{
+        display: none;
+    }
+
+    &.transition{
+        position: absolute;
+        display: grid;
+        height: 100vh;
+    }
+
+    &.activated{
+        position: fixed;
+        display: grid;
+        height: 100vh;
+    }
+}
+
+#services{
+    &.deactivated{
+        display: none;
+    }
+
+    &.transition{
+        position: absolute;
+        height: 100vh;
+        display: grid
+    }
+
+    &.activated{
+        position: fixed;
+        height: 100vh;
+        display: grid
+    }
+}
+
+#background{
+    #title-background{
+        z-index: 1;
+
+        &.activated{
+            position: absolute;
+        }
+        &.transition{
+            position: fixed;
+        }
+    }
+}
