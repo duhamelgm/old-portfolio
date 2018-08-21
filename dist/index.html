@@ -12,31 +12,25 @@
     <title>Duhamel Guerrero</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="nav-aboutme">About Me</li>
-            <li class="nav-services">My Services</li>
-            <li class="nav-contact">Contact</li>
-        </ul>
-    </nav>
-        
-
-    <div id="title" class="activated">
-        <div id="title-content">
-            <h1>
-                <div class="title-maintext"><span>D</span>uhamel</div>
-                <div class="title-maintext">Guerrero</div>
-                <div class="title-secondarytext">Full Stack Web Developer</div>
-            </h1>
+    <div class="principal">          
+        <div id="title" class="activated">
+            <div id="title-content">
+                <h1>
+                    <div class="title-maintext"><span>D</span>uhamel</div>
+                    <div class="title-maintext">Guerrero</div>
+                    <div class="title-secondarytext">Full Stack Web Developer</div>
+                </h1>
+            </div>
         </div>
-    </div>
 
-    <div id="background">
-        <div id="title-background" class="activated"></div>
-    </div>
+        <div id="background">
+            <div id="title-background" class="activated"></div>
+        </div>
 
-    <div id="services" class="deactivated">
-        <h1>Esto es un ejemplo</h1>
+        <div id="services" class="deactivated">
+            <h1>Esto es un ejemplo</h1>
+        </div>
+
     </div>
 
     <main>
@@ -44,13 +38,22 @@
             <div class="container">
                 <h1>About Me</h1>
                 <p>
-                    My journey with the design and programming started when I was 13 years old, searching
-                    and always learning new things reading and experimenting, trying to keep pushing up my limits
-                    and always trying to get a better product
+                    Entre en el mundo del diseño y la programacion a la corta edad de 13 años
+                    y desde entonces he estudiado y practicado constantemente para poder siempre obtener resultados
+                    que se puedan considerar practicos y satisfactorios, gracias a esto pude comprender que mi pasion
+                    era el diseño grafico, expresarse artisticamente con las nuevas tecnologias que aumentan progresivamente cada dia
                 </p>
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis veritatis voluptas illo sunt cupiditate fugiat voluptatem corrupti, tempore vero fugit labore nihil neque quibusdam adipisci, eligendi laudantium eaque animi nostrum perferendis molestiae modi magni et debitis accusantium? Ipsum itaque ea, praesentium excepturi veritatis quae distinctio temporibus maiores quo quidem sint aspernatur delectus sunt? Natus, minus officiis. Veritatis ipsa aliquid assumenda eius! Fuga vitae, recusandae veniam esse iusto minima aspernatur aliquam corrupti, est ab veritatis optio obcaecati iste asperiores consequuntur tempore dicta facere? Distinctio repudiandae, quo quos numquam neque assumenda sapiente magnam reiciendis ducimus in sequi omnis quis eaque nemo obcaecati.
+                    Empeze a trabajar como freelancer poco despues de cumplir 16 años, trabajando con diseños 3d e ilustraciones para videojuegos
+                    y peliculas, durante este periodo pude obtener una buena idea de como es mantener las espectativas de los clientes y
+                    poder cumplir sus necesidades, a la par de aceptar sugerencias y correcciones, constantemente aprendiendo cosas nuevas y mejorando
+                    mi trabajo
                 </p>
+                <p>
+                    Ahora mismo estoy obteniendo una especializacion en diseño mientras trabajo como freelancer desarrollando paginas web desde la
+                    base del diseño hasta el producto final listo para sacar al mercado
+                </p>
+                <h3>Espero oir pronto de ti, Un saludo!</h3>
             </div>
         </div>
         <div id="services-content">
@@ -90,26 +93,66 @@
 
     <div class="contact">
         <form action="">
+            <h1>Contact Form</h1>
             <ul>
                 <li>
-                    <input type="text" name="firstName">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" value="Type your name">
                 </li>
                 <li>
-                    <input type="text" name="lastName">
-                </li>
-                <li>
+                    <label for="email">Email</label>
                     <input type="email" name="email">
+                </li>
+                <li>
+                    <h2>Project</h2>
+                    <div class="project">
+                        <div class="section">
+                            <label for="projectDescription">Project Title</label>
+                            <input type="text" name="projectTitle">
+                        </div>
+                        <div class="section">
+                            <label for="projectDescription">Project Budget</label>
+                            <input class="project-row" type="text" name="projectBudget">
+                        </div>
+                        <div class="section">
+                            <label for="projectDescription">Project Deadline</label>
+                            <input class="project-row" type="text" name="projectDeadline">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <label for="projectDescription">Project Description</label>
+                    <textarea name="" id="" cols="5" rows="5"></textarea>
+                </li>
+                <li>
+                    <input type="submit">
                 </li>
             </ul>
         </form>
     </div>
 
     <footer>
-
+        <h2>Duhamel Guerrero, All rigths Reserved &copy; 2018</h2>
+        <h2 class="email"><i class="far fa-envelope"></i> duhamelgm@gmail.com</h2>
     </footer>
 
-    <script src="./js/noframework.waypoints.min.js"></script>
-    <script src="./js/three.js"></script>
+    <script src="./js/lib/noframework.waypoints.min.js"></script>
+    <script src="./js/lib/three.js"></script>
+
+    <script src="./js/lib/FBXloader.js"></script>
+    <script src="./js/lib/GLTFLoader.js"></script>
+
+    <script src="./js/lib/inflate.min.js"></script>
+
+    <script src="./js/shaders/CopyShader.js"></script>
+    <script src="./js/shaders/SSAOShader.js"></script>
+
+    <script src="./js/postprocessing/EffectComposer.js"></script>
+    <script src="./js/postprocessing/MaskPass.js"></script>
+    <script src="./js/postprocessing/RenderPass.js"></script>
+    <script src="./js/postprocessing/ShaderPass.js"></script>
+    <script src="./js/postprocessing/SSAOPass.js"></script>
+
     <script src="./js/main.js"></script>
 </body>
 </html>

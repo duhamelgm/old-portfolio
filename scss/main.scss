@@ -3,42 +3,24 @@
 @import 'global';
 @import 'waypoints';
 
+$color1: #e6af4b;
+$color2: #e05038;
+$color3: #f2e9dc;
+$color4: #334431;
+$color5: #595959;
+$color6: #808f85;
+$color7: #91c499;
+
 body{
     font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
-}
-
-//NAVBAR
-
-nav{
-    position: absolute;
-    width: 100%;
-    ul{
-        display: grid;
-        grid-template-columns: 1fr 50vw 1fr 1fr 1fr 1fr;
-        grid-template-areas: '. . about services contact .';
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        li{
-            padding: 20px;
-
-            &.nav-aboutme{
-                grid-area: about;
-            }
-            &.nav-services{
-                grid-area: services;
-            }
-            &.nav-contact{
-                grid-area: contact;
-            }
-        }
-    }
+    background: $color1;
 }
 
 //Title
+
 
 #title{
     grid-template-columns: 12.5vw 25vw 62.5vw;
@@ -47,6 +29,8 @@ nav{
     ". . ."
     ". title ."
     ". . .";
+    color: $color3;
+
     #title-content{
         grid-area: title;
         .title-maintext{
@@ -71,7 +55,7 @@ nav{
 main{
     display: grid;
     grid-template-columns: 50vw 50vw;
-    grid-template-rows: 100vh 100vh;
+    grid-template-rows: auto auto;
     grid-template-areas:
     ". about"
     "services .";
@@ -89,17 +73,80 @@ main{
 //emailform
 
 .contact{
-    height: 100vh;
+    margin-bottom: 50px;
     display: grid;
-    grid-template-columns: 62.5vw 25vw 12.5vw;
-    grid-template-rows: auto 40vh auto;
+    grid-template-columns: 50vw 50vw;
     grid-template-areas: 
-    ". . ."
-    ". contact ."
-    ". . .";
+    ". contact";
 
     form{
         grid-area: contact;
+        margin-right: 20%;
+        
+        h1{
+            text-align: center;
+        }
+
+        li{
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            
+            h2{
+                padding: 0;
+                margin: 0;
+                margin-bottom: 15px;
+            }
+
+            .project{
+                display: flex;
+                justify-content: space-between;
+
+                .section{
+                    width: 25%;
+                }
+            }
+
+            input{
+                padding: 12px;
+                width: 100%;
+                border: 0 none;
+                border: 1.5px solid #eee;
+            }
+
+            textarea{
+                padding: 12px;
+                width: 100%;
+                border: 0 none;
+                border: 1.5px solid #eee;
+            }
+
+            input[type=submit]{
+                border: 0 none;
+                cursor: pointer;
+                -webkit-border-radius: 5px;
+                border-radius: 5px; 
+            }
+        }
+    }
+}
+
+//footer
+
+footer{
+    background: #eee;
+    display: flex;
+    text-align: center;
+    
+
+    .email{
+        margin-left: auto;
+    }
+
+    h2{
+        padding-right: 20px;
+        padding-left: 20px;
     }
 }
 

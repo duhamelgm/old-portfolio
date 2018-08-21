@@ -47,32 +47,16 @@ h1 {
 
 body {
   font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
   margin: 0;
-  padding: 0; }
-
-nav {
-  position: absolute;
-  width: 100%; }
-  nav ul {
-    display: grid;
-    grid-template-columns: 1fr 50vw 1fr 1fr 1fr 1fr;
-    grid-template-areas: '. . about services contact .';
-    justify-content: center;
-    align-items: center;
-    text-align: center; }
-    nav ul li {
-      padding: 20px; }
-      nav ul li.nav-aboutme {
-        grid-area: about; }
-      nav ul li.nav-services {
-        grid-area: services; }
-      nav ul li.nav-contact {
-        grid-area: contact; }
+  padding: 0;
+  background: #e6af4b; }
 
 #title {
   grid-template-columns: 12.5vw 25vw 62.5vw;
   grid-template-rows: auto 40vh auto;
-  grid-template-areas: ". . ." ". title ." ". . ."; }
+  grid-template-areas: ". . ." ". title ." ". . .";
+  color: #f2e9dc; }
   #title #title-content {
     grid-area: title; }
     #title #title-content .title-maintext {
@@ -86,7 +70,7 @@ nav {
 main {
   display: grid;
   grid-template-columns: 50vw 50vw;
-  grid-template-rows: 100vh 100vh;
+  grid-template-rows: auto auto;
   grid-template-areas: ". about" "services .";
   align-items: stretch; }
   main #about-content {
@@ -95,10 +79,51 @@ main {
     grid-area: services; }
 
 .contact {
-  height: 100vh;
+  margin-bottom: 50px;
   display: grid;
-  grid-template-columns: 62.5vw 25vw 12.5vw;
-  grid-template-rows: auto 40vh auto;
-  grid-template-areas: ". . ." ". contact ." ". . ."; }
+  grid-template-columns: 50vw 50vw;
+  grid-template-areas: ". contact"; }
   .contact form {
-    grid-area: contact; }
+    grid-area: contact;
+    margin-right: 20%; }
+    .contact form h1 {
+      text-align: center; }
+    .contact form li {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      width: 100%; }
+      .contact form li h2 {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 15px; }
+      .contact form li .project {
+        display: flex;
+        justify-content: space-between; }
+        .contact form li .project .section {
+          width: 25%; }
+      .contact form li input {
+        padding: 12px;
+        width: 100%;
+        border: 0 none;
+        border: 1.5px solid #eee; }
+      .contact form li textarea {
+        padding: 12px;
+        width: 100%;
+        border: 0 none;
+        border: 1.5px solid #eee; }
+      .contact form li input[type=submit] {
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px; }
+
+footer {
+  background: #eee;
+  display: flex;
+  text-align: center; }
+  footer .email {
+    margin-left: auto; }
+  footer h2 {
+    padding-right: 20px;
+    padding-left: 20px; }
