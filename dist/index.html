@@ -12,86 +12,59 @@
     <title>Duhamel Guerrero</title>
 </head>
 <body>
-    <div class="principal">          
+    <div id="principal">
         <div id="title" class="activated">
             <div id="title-content">
                 <h1>
-                    <div class="title-maintext"><span>D</span>uhamel</div>
-                    <div class="title-maintext">Guerrero</div>
-                    <div class="title-secondarytext">Full Stack Web Developer</div>
+                    <div class="title-maintext">Hola</div>
+                    <div class="title-secondarytext">Duhamel Guerrero</div>
+                    <div class="title-secondarytext">Web Developer</div>
                 </h1>
             </div>
         </div>
-
+    
         <div id="background">
             <div id="title-background" class="activated"></div>
         </div>
-
-        <div id="services" class="deactivated">
-            <h1>Esto es un ejemplo</h1>
-        </div>
-
     </div>
 
-    <main>
-        <div id="about-content">
-            <div class="container">
-                <h1>About Me</h1>
-                <p>
-                    Entre en el mundo del diseño y la programacion a la corta edad de 13 años
-                    y desde entonces he estudiado y practicado constantemente para poder siempre obtener resultados
-                    que se puedan considerar practicos y satisfactorios, gracias a esto pude comprender que mi pasion
-                    era el diseño grafico, expresarse artisticamente con las nuevas tecnologias que aumentan progresivamente cada dia
-                </p>
-                <p>
-                    Empeze a trabajar como freelancer poco despues de cumplir 16 años, trabajando con diseños 3d e ilustraciones para videojuegos
-                    y peliculas, durante este periodo pude obtener una buena idea de como es mantener las espectativas de los clientes y
-                    poder cumplir sus necesidades, a la par de aceptar sugerencias y correcciones, constantemente aprendiendo cosas nuevas y mejorando
-                    mi trabajo
-                </p>
-                <p>
-                    Ahora mismo estoy obteniendo una especializacion en diseño mientras trabajo como freelancer desarrollando paginas web desde la
-                    base del diseño hasta el producto final listo para sacar al mercado
-                </p>
-                <h3>Espero oir pronto de ti, Un saludo!</h3>
+    <div id="about-me" class="deactive">
+        <div id="container" class="animate">
+            <div class="close" onclick="activeAboutZone()">
+                <i class="fas fa-times fa-2x"></i>
             </div>
-        </div>
-        <div id="services-content">
-            <div class="container">
-                <h1>Services</h1>
-                <ul>
-                    <li>
-                        <h2>Design</h2>
-                        <p>Design your page and your product to be atractive to the client</p>
-                        <ul>
-                            <li>Blender</li>
-                            <li>Cinema4D</li>
-                            <li>Illustrator</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h2>Development</h2>
-                        <p>Implement functionality to your website, responsive design and a modern looking</p>
-                        <ul>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>Javascript</li>
-                            <li>JQuery</li>
-                            <li>PHP</li>
-                            <li>Bootstrap</li>
-                            <li>WordPress</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h2>Website Maintenance</h2>
-                        <p>Long term contract to keept maintenance your website</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </main>
+            <div class="content">
+                <div id="about-content">
+                    <h1>Acerca de mi</h1>
+                    <p>
+                        Entre en el mundo del diseño y la programacion a la corta edad de 15 años
+                        y desde entonces he estudiado y practicado constantemente para poder siempre obtener resultados
+                        que se puedan considerar practicos y satisfactorios, gracias a esto pude comprender que mi pasion
+                        era el diseño grafico, expresarse artisticamente con las nuevas tecnologias y mantenerme al dia con lo que sale cada dia
+                    </p>
+                    <p>
+                        Mi principal objetivo es poder cumplir los proyectos de mis clientes, cumpliendo sus expectativas y obteniendo resultados
+                        satisfactorios para ambas partes
+                    </p>
+                    <h3>Espero oir pronto de ti, Un saludo!</h3>
+                </div>
 
-    <div class="contact">
+                <div id="img-aboutme">
+                    <img src="./img/book.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="design-content" class="deactive">
+        <h1>Aqui va el diseño</h1>
+    </div>
+
+    <div id="programing-content" class="deactive">
+        <h1>Aqui va la programacion</h1>
+    </div>
+    
+    <div id="contact" class="deactive">
         <form action="">
             <h1>Contact Form</h1>
             <ul>
@@ -129,12 +102,13 @@
                 </li>
             </ul>
         </form>
+
+        <footer>
+            <h2>Duhamel Guerrero, All rigths Reserved &copy; 2018</h2>
+            <h2 class="email"><i class="far fa-envelope"></i> duhamelgm@gmail.com</h2>
+        </footer>
     </div>
 
-    <footer>
-        <h2>Duhamel Guerrero, All rigths Reserved &copy; 2018</h2>
-        <h2 class="email"><i class="far fa-envelope"></i> duhamelgm@gmail.com</h2>
-    </footer>
 
     <script src="./js/lib/noframework.waypoints.min.js"></script>
     <script src="./js/lib/three.js"></script>
@@ -152,6 +126,8 @@
     <script src="./js/postprocessing/RenderPass.js"></script>
     <script src="./js/postprocessing/ShaderPass.js"></script>
     <script src="./js/postprocessing/SSAOPass.js"></script>
+
+    <script src="js/lib/SceneUtils.js"></script>
 
     <script src="./js/main.js"></script>
 </body>

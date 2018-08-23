@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Archivo");
 ul {
   list-style: none;
   margin: 0;
@@ -8,111 +9,135 @@ h1 {
   margin: 0;
   padding: 0; }
 
-.container {
-  width: 80%;
-  margin: auto; }
-
-#title {
-  z-index: 2; }
-  #title.deactivated {
-    display: none; }
-  #title.transition {
-    position: absolute;
-    display: grid;
-    height: 100vh; }
-  #title.activated {
-    position: fixed;
-    display: grid;
-    height: 100vh; }
-
-#services.deactivated {
-  display: none; }
-
-#services.transition {
-  position: absolute;
-  height: 100vh;
-  display: grid; }
-
-#services.activated {
-  position: fixed;
-  height: 100vh;
-  display: grid; }
-
-#background #title-background {
-  z-index: 1; }
-  #background #title-background.activated {
-    position: absolute; }
-  #background #title-background.transition {
-    position: fixed; }
+#principal.hover {
+  cursor: pointer; }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Archivo', sans-serif;
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  background: #e6af4b; }
-
-#title {
-  grid-template-columns: 12.5vw 25vw 62.5vw;
-  grid-template-rows: auto 40vh auto;
-  grid-template-areas: ". . ." ". title ." ". . .";
-  color: #f2e9dc; }
-  #title #title-content {
-    grid-area: title; }
-    #title #title-content .title-maintext {
-      font-size: 5rem; }
-    #title #title-content .title-secondarytext {
-      font-size: 1.5rem; }
-
-#background {
-  height: 100vh; }
-
-main {
+  background: #f2e9dc;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: 50vw 50vw;
-  grid-template-rows: auto auto;
-  grid-template-areas: ". about" "services .";
-  align-items: stretch; }
-  main #about-content {
-    grid-area: about; }
-  main #services-content {
-    grid-area: services; }
+  grid-template-columns: 100vw auto;
+  grid-template-rows: 100vh auto auto;
+  grid-template-areas: "title contact" "design ." "services ."; }
 
-.contact {
-  margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: 50vw 50vw;
-  grid-template-areas: ". contact"; }
-  .contact form {
-    grid-area: contact;
+/*
+    TITLE ZONE
+*/
+#principal {
+  grid-area: title; }
+  #principal #title {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 100vh;
+    grid-template-areas: "title .";
+    color: #e6af4b;
+    align-items: center;
+    justify-items: center; }
+    #principal #title #title-content {
+      grid-area: title; }
+      #principal #title #title-content .title-maintext {
+        font-size: 13rem; }
+      #principal #title #title-content .title-secondarytext {
+        font-size: 1.5rem; }
+  #principal #background {
+    height: 100vh; }
+    #principal #background #title-background {
+      position: absolute; }
+
+/*
+    ABOUT ZONE
+*/
+#about-me {
+  display: none;
+  min-height: 100vh;
+  position: absolute;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4); }
+  #about-me.active {
+    display: grid;
+    grid-template-areas: "." "container" "."; }
+  #about-me #container {
+    grid-area: container;
+    color: #fff;
+    background: #e6af4b;
+    -webkit-box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.5);
+    margin: 150px; }
+    #about-me #container .content {
+      display: flex;
+      align-items: stretch;
+      justify-content: center; }
+      #about-me #container .content #about-content {
+        padding: 40px;
+        order: 2; }
+      #about-me #container .content #img-aboutme {
+        order: 1; }
+        #about-me #container .content #img-aboutme img {
+          width: 400px; }
+    #about-me #container .close {
+      padding: 8px;
+      padding-right: 10px; }
+      #about-me #container .close i {
+        float: right; }
+        #about-me #container .close i:hover {
+          color: #f2e9dc;
+          cursor: pointer; }
+    #about-me #container.animate {
+      -webkit-animation: animatezoom 0.5s;
+      animation: animatezoom 0.5s; }
+
+/*
+    SERVICES ZONE
+*/
+#services-content {
+  grid-area: services; }
+  #services-content.deactive {
+    height: 0;
+    display: none; }
+
+/*
+    CONTACT ZONE
+*/
+#contact {
+  grid-area: contact; }
+  #contact.deactive {
+    width: 0;
+    display: none; }
+  #contact form {
     margin-right: 20%; }
-    .contact form h1 {
+    #contact form h1 {
       text-align: center; }
-    .contact form li {
+    #contact form li {
       padding: 12px;
       display: flex;
       flex-direction: column;
       width: 100%; }
-      .contact form li h2 {
+      #contact form li h2 {
         padding: 0;
         margin: 0;
         margin-bottom: 15px; }
-      .contact form li .project {
+      #contact form li .project {
         display: flex;
         justify-content: space-between; }
-        .contact form li .project .section {
+        #contact form li .project .section {
           width: 25%; }
-      .contact form li input {
+      #contact form li input {
         padding: 12px;
         width: 100%;
         border: 0 none;
         border: 1.5px solid #eee; }
-      .contact form li textarea {
+      #contact form li textarea {
         padding: 12px;
         width: 100%;
         border: 0 none;
         border: 1.5px solid #eee; }
-      .contact form li input[type=submit] {
+      #contact form li input[type=submit] {
         border: 0 none;
         cursor: pointer;
         -webkit-border-radius: 5px;
@@ -127,3 +152,15 @@ footer {
   footer h2 {
     padding-right: 20px;
     padding-left: 20px; }
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0); }
+  to {
+    -webkit-transform: scale(1); } }
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }

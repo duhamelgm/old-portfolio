@@ -2,9 +2,15 @@
     3D SHOWCASE
 */
 
+//ESCENA TITULO
+
+
 var scene = new THREE.Scene();
 var camera, renderer, light, mesh, clock;
 var mixer, animationClip;
+var mouse, raycaster, camera;
+var objects = [];
+var bookshelfDown, pcDown, programDown, contactDown;
 
 var loader = new THREE.GLTFLoader();
 loader.load(
@@ -18,18 +24,21 @@ loader.load(
             if(child instanceof THREE.PerspectiveCamera)
             {
                 camera = child;
-                console.log(child);
-
-                console.log(gltf.animations)
-
-                mixer = new THREE.AnimationMixer( mesh);
-                mixer.clipAction( gltf.animations[0]).play();
-
+                //var objectCamera = child.parent
+                //objectCamera.parent = null;
             }
         });
 
+        mesh.traverse(function(child) {
+            if(child.isMesh){
+                objects.push(child);
+            }
+        });
+        mixer = new THREE.AnimationMixer(mesh);
+        mixer.clipAction( gltf.animations[0]).play();
+
         scene.add(mesh);
-        console.log(mesh);
+        console.log(objects);
 
         modelLoaded();
     }
@@ -41,26 +50,67 @@ function modelLoaded() {
 }
 
 function init() {
-    renderer = new THREE.WebGLRenderer({ alpha: true});
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true});
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setClearColor( 0x000000, 0 );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.getElementById("title-background").appendChild( renderer.domElement );
 
+    console.log(scene.children);
 
-    light = new THREE.DirectionalLight( 0xFFFFFF );
+    var pointlight = new THREE.PointLight( 0xffffff, 1, 100 );
+    pointlight.position.set( 0, 8, 0 );
+    pointlight.target = mesh;
+    scene.add( pointlight );
+
+    
+    var pointlight = new THREE.PointLight( 0xffffff, 0.5, 100 );
+    pointlight.position.set( 0, 8, 0 );
+    pointlight.target = mesh;
+    pointlight.castShadow = true;
+    scene.add( pointlight );
+    
+    
+    pointlight.shadow.mapSize.width = 1024;  // default
+    pointlight.shadow.mapSize.height = 1024;
+    pointlight.shadow.radius = 2; // default
+    pointlight.shadow.camera.near = 0.5;       // default
+    pointlight.shadow.camera.far = 500      // default
+    
+
+    var sphereSize = 0.5;
+    var pointLightHelper = new THREE.PointLightHelper( pointlight, sphereSize );
+    scene.add( pointLightHelper );
+
+    for(var i = 0; i<objects.length; i++){
+        console.log(objects);
+        objects[i].castShadow = true;
+        objects[i].receiveShadow = true;
+    }
+
+    /*
+    var light = new THREE.AmbientLight( 0x404040, 0.3 ); // soft white light
+    scene.add( light );
+    */
+    /*
+    light = new THREE.DirectionalLight( 0xFFFFFF, 1 );
     scene.add( light );
     light.target = mesh;
-    light.position.x = 1;
+    light.position.x = 10;
     light.position.z = 1;
-
-    //var helper = new THREE.DirectionalLightHelper( light, 5 );
-    //scene.add( helper );
+    */
 
     clock = new THREE.Clock();
 
+    document.addEventListener( 'mousemove', onMouseMove, false );
+    document.addEventListener( 'mousedown', onMouseDown, false );
     window.addEventListener( 'resize', onWindowResize, false );
 
     onWindowResize();
+
+    mouse = new THREE.Vector2();
+    raycaster = new THREE.Raycaster();
 }
 
 function onWindowResize() {
@@ -71,10 +121,92 @@ function onWindowResize() {
     renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
+function onMouseMove( e ) {
+    
+    e.preventDefault();
+
+    //mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    //mouse.y = - (e.clientX / window.innerHeight) * 2 - 1;
+
+    mouse.x = ( ( e.clientX - renderer.domElement.offsetLeft ) / renderer.domElement.clientWidth ) * 2 - 1;
+    mouse.y = - ( ( e.clientY - renderer.domElement.offsetTop ) / renderer.domElement.clientHeight ) * 2 + 1
+
+    raycaster.setFromCamera( mouse, camera );
+
+    var intersects = raycaster.intersectObjects(objects);
+
+    if ( intersects.length > 0 ) {
+    
+        console.log( intersects[ 0 ].object ); // print first object
+
+        var parentName = intersects[0].object.parent.name;
+
+        //Pointer
+
+        if( parentName === "Bookshelf" || parentName === "PC" || parentName === "Program" || parentName === "Contact"){
+            var back = document.getElementById("principal");
+            back.className = "hover";
+        } else {
+            var back = document.getElementById("principal");
+            back.className = "not-hover";
+        }
+
+        //About Me
+
+        if( parentName === "Bookshelf") 
+        {
+            console.log("Es PC");
+            bookshelfDown = true;
+        } else {
+            bookshelfDown = false;
+        }
+
+        //Design
+
+        if( parentName === "PC")
+        {
+            pcdown = true;
+        } else {
+            pcdown = false;
+        }
+    
+        //Programing
+
+        if( parentName === "Program")
+        {
+            programDown = true;
+        } else {
+            programDown = false;
+        }
+
+        //Contact
+
+        if( parentName === "Contact")
+        {
+            contactDown = true;
+        } else {
+            contactDown = false;
+        }
+    }
+}
+
+function onMouseDown(e) {
+    e.preventDefault();
+
+    if(bookshelfDown){
+        activeAboutZone();
+    }
+}
+
 function animate() {
     requestAnimationFrame( animate );
     
+    render();
+}
+
+function render() {
     mixer.update( clock.getDelta() );
+
     renderer.render( scene, camera );
 }
 
@@ -82,43 +214,12 @@ function animate() {
     UI SCRIPTS
 */
 
-//Title-Background
-var waypointTitleBackgroundTransition = new Waypoint({
-    element: document.getElementById("about-content"),
-    handler: function(){
-        var titleBackground = document.getElementById("title-background");
-        if(titleBackground.className === "transition") {
-            titleBackground.className = "activated";
-          
-        } else {
-            titleBackground.className = "transition";
-            
-        }
-    },
-    offset: "99%"
-})
-
-//Title
-var waypointTitleTransition = new Waypoint({
-    element: document.getElementById("about-content"),
-    handler: function(){
-        var titleBackground = document.getElementById("title-background");
-        var title = document.getElementById("title");
-        var height = document.getElementById("about-content").clientHeight;
-
-        if(title.className === "transition"){
-            title.className = "activated";
-            title.style.marginTop = 0;
-
-            titleBackground.className = "transition";
-            titleBackground.style.marginTop = 0;
-        } else {
-            title.className = "transition";
-            title.style.marginTop = height + "px";
-
-            titleBackground.className = "activated";
-            titleBackground.style.marginTop = height + "px";
-        }
-    },
-    offset: "bottom-in-view"
-})
+function activeAboutZone(){
+    var aboutZone = document.getElementById("about-me");
+    if (aboutZone.className === "deactive") {
+        aboutZone.className = "active";
+    } 
+    else if (aboutZone.className === "active" && bookshelfDown === false) {
+        aboutZone.className = "deactive"
+    }
+}
