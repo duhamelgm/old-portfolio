@@ -22,7 +22,7 @@ body {
   display: grid;
   grid-template-columns: 100vw auto;
   grid-template-rows: 100vh auto auto;
-  grid-template-areas: "title contact" "design ." "services ."; }
+  grid-template-areas: "title contact" "design ." "program ."; }
 
 /*
     TITLE ZONE
@@ -93,13 +93,19 @@ body {
       animation: animatezoom 0.5s; }
 
 /*
-    SERVICES ZONE
+    DESIGN ZONE
 */
-#services-content {
-  grid-area: services; }
-  #services-content.deactive {
-    height: 0;
-    display: none; }
+#design-content {
+  grid-area: design;
+  display: none; }
+  #design-content.active {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  #design-content .card {
+    background: #fff;
+    display: flex; }
 
 /*
     CONTACT ZONE

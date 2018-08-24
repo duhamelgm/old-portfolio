@@ -4,13 +4,13 @@
 
 //ESCENA TITULO
 
-
 var scene = new THREE.Scene();
 var camera, renderer, light, mesh, clock;
+var mainCamera, pcCamera, aboutCamera, designCamera, contactCamera;
 var mixer, animationClip;
 var mouse, raycaster, camera;
 var objects = [];
-var bookshelfDown, pcDown, programDown, contactDown;
+var bookshelfDown, designDown, programDown, contactDown;
 
 var loader = new THREE.GLTFLoader();
 loader.load(
@@ -23,7 +23,20 @@ loader.load(
         mesh.traverse(function(child) {
             if(child instanceof THREE.PerspectiveCamera)
             {
-                camera = child;
+                if(child.parent.name === "Camera"){
+                    camera = child;
+                } else if(child.parent.name === "MainCamera"){
+                    mainCamera = child.parent;
+                } else if(child.parent.name === "PcCamera"){
+                    pcCamera = child.parent;
+                } else if(child.parent.name === "DesignCamera"){
+                    designCamera = child.parent;
+                } else if (child.parent.name === "AboutCamera"){
+                    aboutCamera = child.parent;
+                } else if (child.parent.name === "ContactCamera"){
+                    contactCamera = child.parent;
+                }
+                console.log(child);
                 //var objectCamera = child.parent
                 //objectCamera.parent = null;
             }
@@ -68,15 +81,15 @@ function init() {
     var pointlight = new THREE.PointLight( 0xffffff, 0.5, 100 );
     pointlight.position.set( 0, 8, 0 );
     pointlight.target = mesh;
-    pointlight.castShadow = true;
+    //pointlight.castShadow = true;
     scene.add( pointlight );
     
     
-    pointlight.shadow.mapSize.width = 1024;  // default
-    pointlight.shadow.mapSize.height = 1024;
-    pointlight.shadow.radius = 2; // default
+    pointlight.shadow.mapSize.width = 512;  // default
+    pointlight.shadow.mapSize.height = 512;
+    pointlight.shadow.radius = 0; // default
     pointlight.shadow.camera.near = 0.5;       // default
-    pointlight.shadow.camera.far = 500      // default
+    pointlight.shadow.camera.far = 500;      // default
     
 
     var sphereSize = 0.5;
@@ -84,7 +97,6 @@ function init() {
     scene.add( pointLightHelper );
 
     for(var i = 0; i<objects.length; i++){
-        console.log(objects);
         objects[i].castShadow = true;
         objects[i].receiveShadow = true;
     }
@@ -137,7 +149,7 @@ function onMouseMove( e ) {
 
     if ( intersects.length > 0 ) {
     
-        console.log( intersects[ 0 ].object ); // print first object
+        //console.log( intersects[ 0 ].object ); // print first object
 
         var parentName = intersects[0].object.parent.name;
 
@@ -155,7 +167,6 @@ function onMouseMove( e ) {
 
         if( parentName === "Bookshelf") 
         {
-            console.log("Es PC");
             bookshelfDown = true;
         } else {
             bookshelfDown = false;
@@ -165,9 +176,9 @@ function onMouseMove( e ) {
 
         if( parentName === "PC")
         {
-            pcdown = true;
+            designDown = true;
         } else {
-            pcdown = false;
+            designDown = false;
         }
     
         //Programing
@@ -190,11 +201,26 @@ function onMouseMove( e ) {
     }
 }
 
+var doc;
+
 function onMouseDown(e) {
     e.preventDefault();
 
     if(bookshelfDown){
-        activeAboutZone();
+        doc = document.getElementById("about-me");
+        activeZone(aboutCamera);
+    }
+    if(designDown){
+        doc = document.getElementById("design-content");
+        activeZone(pcCamera);
+    }
+    if(programDown){
+        doc = document.getElementById("programing-content");
+        activeZone(designCamera);
+    }
+    if(contactDown){
+        doc = document.getElementById("contact");
+        activeZone(contactCamera);
     }
 }
 
@@ -214,12 +240,16 @@ function render() {
     UI SCRIPTS
 */
 
-function activeAboutZone(){
-    var aboutZone = document.getElementById("about-me");
-    if (aboutZone.className === "deactive") {
-        aboutZone.className = "active";
-    } 
-    else if (aboutZone.className === "active" && bookshelfDown === false) {
-        aboutZone.className = "deactive"
+var activeZone = function(cam){
+    if(doc.className === "deactive"){
+        doc.className = "active";
+
+        camera.parent.position.copy(cam.position);
+        camera.parent.rotation.copy(cam.rotation);
+    } else {
+        doc.className = "deactive"
+
+        camera.parent.position.copy(mainCamera.position);
+        camera.parent.rotation.copy(mainCamera.rotation);
     }
 }

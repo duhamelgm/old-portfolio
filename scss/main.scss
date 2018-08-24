@@ -26,7 +26,7 @@ body{
     grid-template-areas: 
     "title contact"
     "design ."
-    "services .";
+    "program .";
 }
 
 /*
@@ -139,14 +139,23 @@ body{
 }
 
 /*
-    SERVICES ZONE
+    DESIGN ZONE
 */    
 
-#services-content{
-    grid-area: services;
-    &.deactive{
-        height: 0;
-        display: none;
+#design-content{
+    grid-area: design;
+    display: none;
+    &.active{
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card{
+        background: #fff;
+        display: flex;
     }
 }
 
