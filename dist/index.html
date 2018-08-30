@@ -12,14 +12,22 @@
     <title>Duhamel Guerrero</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#about-me" class="cool-link">Sobre mi</a></li>
+            <li><a href="#services" class="cool-link">Servicios</a></li>
+            <li><a href="#contact" class="cool-link">Contacto</a></li>
+        </ul>
+    </nav>
+
     <div id="principal">
         <div id="title" class="activated">
-            <div id="title-content">
-                <h1>
-                    <div class="title-maintext">Hola</div>
-                    <div class="title-secondarytext">Duhamel Guerrero</div>
-                    <div class="title-secondarytext">Web Developer</div>
-                </h1>
+            <img src="./img/logo.png" alt="">
+            <div class="title-maintext">
+                <h1>DUHAMEL GUERRERO</h1>
+            </div>
+            <div class="title-secondarytext">
+                <h1>Web Developer</h1>
             </div>
         </div>
     
@@ -29,109 +37,82 @@
     </div>
 
     <div id="about-me" class="deactive">
-        <div id="container" class="animate">
-            <div class="close" onclick="onMouseDown()">
-                <i class="fas fa-times fa-2x"></i>
-            </div>
+        <div class="container" class="animate">
             <div class="content">
-                <div id="about-content">
-                    <h1>Acerca de mi</h1>
-                    <p>
-                        Entre en el mundo del diseño y la programacion a la corta edad de 15 años
-                        y desde entonces he estudiado y practicado constantemente para poder siempre obtener resultados
-                        que se puedan considerar practicos y satisfactorios, gracias a esto pude comprender que mi pasion
-                        era el diseño grafico, expresarse artisticamente con las nuevas tecnologias y mantenerme al dia con lo que sale cada dia
-                    </p>
-                    <p>
-                        Mi principal objetivo es poder cumplir los proyectos de mis clientes, cumpliendo sus expectativas y obteniendo resultados
-                        satisfactorios para ambas partes
-                    </p>
-                    <h3>Espero oir pronto de ti, Un saludo!</h3>
-                </div>
-
-                <div id="img-aboutme">
-                    <img src="./img/book.png" alt="">
-                </div>
+                <h1>Acerca de mi</h1>
+                <p>
+                    Entre en el mundo del diseño y la programacion a la corta edad de 15 años
+                    y desde entonces he estudiado y practicado constantemente para poder siempre obtener resultados
+                    que se puedan considerar practicos y satisfactorios, gracias a esto pude comprender que mi pasion
+                    era el diseño grafico, expresarse artisticamente con las nuevas tecnologias y mantenerme al dia con las
+                    ultimas tendencias a nivel global
+                </p>
+                <p>
+                    Mi principal objetivo es poder cumplir los proyectos de mis clientes, cumpliendo sus expectativas y obteniendo resultados
+                    satisfactorios para ambas partes
+                </p>
+                <h3>Espero oir pronto de ti, Un saludo!</h3>
             </div>
         </div>
     </div>
     
-    <div id="design-content" class="deactive">
-        <div class="card">
-            <div class="text">
-                    <h1>Diseño</h1>
-                    <p>
-                        Una parte muy importante en el diseño de tu pagina web es el estilo
-                        artistico que decidas tomar, una pagina agradable, llamativa y diferente
-                        no solo lograra diferenciar tu marca de las demas, sino tambien
-                        capturar la atencion del cliente
-                    </p>
-                    <h1>Que ofrezco</h1>
-                    <ul>
-                        <li>
-                            <h2>Create your image</h2>
-                        </li>
-                        <li>
-                            <h2>Adapt your page</h2>
-                        </li>
-                        <li>
-                            <h2>Update your brand</h2>
-                        </li>
-                    </ul>
+    <div id="services" class="deactive">
+        <div class="title">        
+            <h1>Servicios</h1>
+        </div>
+
+        <div id="design-tabs" class="deactive">
+            <div class="tab">
+                <h2>Crear tu imagen</h2>
+                <p>
+                    No hay nada como una agradable e iconica interfaz
+                    que pueda capturar la atencion del cliente. Los modelos 3D son novedosos
+                    y llamativos, dejame adaptar tu marca al mundo del 3D para que tengas una
+                    pagina web increible que se adecue a tu empresa y a tus gustos.
+                </p>
+                <img src="./img/design.png" alt="">
             </div>
-            <div id="model-design"></div>
+            <div class="tab">
+                <h2>Actualiza tu sitio</h2>
+                <p>
+                    Ya tienes tu interfaz planeada y hecha, o simplemente quieres hacerle
+                    mantenimiento a tu pagina? dejame adaptar tu diseño y actualizar tu sitio web
+                </p>
+                <img src="./img/adapt.png" alt="">
+            </div>
+            <div class="tab">
+                <h2>Mantenimiento del Servidor</h2>
+                <p>
+                    Necesitas implementar alguna API de pago para tu ecommerce? Hacerle mantenimiento a
+                    tu web desactualizada? contactame y me encargare de añadir y optimizar multitud de apis
+                    y frameworks
+                </p>
+                <img src="./img/server.png" alt="">
+            </div>
         </div>
     </div>
 
-    <div id="programing-content" class="deactive">
-        <h1>Aqui va la programacion</h1>
-    </div>
-    
     <div id="contact" class="deactive">
-        <form action="">
-            <h1>Contact Form</h1>
-            <ul>
-                <li>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" value="Type your name">
-                </li>
-                <li>
-                    <label for="email">Email</label>
-                    <input type="email" name="email">
-                </li>
-                <li>
-                    <h2>Project</h2>
-                    <div class="project">
-                        <div class="section">
-                            <label for="projectDescription">Project Title</label>
-                            <input type="text" name="projectTitle">
-                        </div>
-                        <div class="section">
-                            <label for="projectDescription">Project Budget</label>
-                            <input class="project-row" type="text" name="projectBudget">
-                        </div>
-                        <div class="section">
-                            <label for="projectDescription">Project Deadline</label>
-                            <input class="project-row" type="text" name="projectDeadline">
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <label for="projectDescription">Project Description</label>
-                    <textarea name="" id="" cols="5" rows="5"></textarea>
-                </li>
-                <li>
-                    <input type="submit">
-                </li>
-            </ul>
-        </form>
-
-        <footer>
-            <h2>Duhamel Guerrero, All rigths Reserved &copy; 2018</h2>
-            <h2 class="email"><i class="far fa-envelope"></i> duhamelgm@gmail.com</h2>
-        </footer>
+        <div class="container">
+            <div class="title">
+                <img src="./img/logo.png" alt="">
+                <h1>DUHAMEL GUERRERO</h1>
+                <h1>Web Developer</h1>
+            </div>
+            <div class="section">
+                <h1>Habilidades</h1>
+                <p>HTML5/CSS3/JS/Jquery/THREE.js/PHP/Wordpress/Blender/Illustrator</p>
+            </div>
+            <div class="section">
+                <h1>Contacto</h1>
+                <p>duhamelgm@gmail.com</p>
+            </div>
+        </div>
     </div>
 
+    <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
 
     <script src="./js/lib/noframework.waypoints.min.js"></script>
     <script src="./js/lib/three.js"></script>
@@ -151,6 +132,8 @@
     <script src="./js/postprocessing/SSAOPass.js"></script>
 
     <script src="js/lib/SceneUtils.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <script src="./js/main.js"></script>
 </body>

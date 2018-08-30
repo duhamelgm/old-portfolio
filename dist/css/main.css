@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://fonts.googleapis.com/css?family=Archivo");
+@import url("https://fonts.googleapis.com/css?family=Do+Hyeon|Sawarabi+Gothic|Sawarabi+Mincho");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 ul {
   list-style: none;
   margin: 0;
@@ -9,164 +12,180 @@ h1 {
   margin: 0;
   padding: 0; }
 
-#principal.hover {
-  cursor: pointer; }
+.container {
+  width: 60%;
+  margin: auto; }
+
+a {
+  text-decoration: none;
+  color: black; }
 
 body {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  background: #f2e9dc;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 100vw auto;
-  grid-template-rows: 100vh auto auto;
-  grid-template-areas: "title contact" "design ." "program ."; }
+  background: #fff; }
 
 /*
     TITLE ZONE
 */
-#principal {
-  grid-area: title; }
-  #principal #title {
-    position: absolute;
-    display: grid;
-    grid-template-columns: 50vw 50vw;
-    grid-template-rows: 100vh;
-    grid-template-areas: "title .";
-    color: #e6af4b;
-    align-items: center;
-    justify-items: center; }
-    #principal #title #title-content {
-      grid-area: title; }
-      #principal #title #title-content .title-maintext {
-        font-size: 13rem; }
-      #principal #title #title-content .title-secondarytext {
-        font-size: 1.5rem; }
-  #principal #background {
-    height: 100vh; }
-    #principal #background #title-background {
-      position: absolute; }
-
-/*
-    ABOUT ZONE
-*/
-#about-me {
-  display: none;
-  min-height: 100vh;
+nav {
   position: absolute;
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.4); }
-  #about-me.active {
-    display: grid;
-    grid-template-areas: "." "container" "."; }
-  #about-me #container {
-    grid-area: container;
-    color: #fff;
-    background: #e6af4b;
-    -webkit-box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 10px 10px 17px 0px rgba(0, 0, 0, 0.5);
-    margin: 150px; }
-    #about-me #container .content {
-      display: flex;
-      align-items: stretch;
-      justify-content: center; }
-      #about-me #container .content #about-content {
-        padding: 40px;
-        order: 2; }
-      #about-me #container .content #img-aboutme {
-        order: 1; }
-        #about-me #container .content #img-aboutme img {
-          width: 400px; }
-    #about-me #container .close {
-      padding: 8px;
-      padding-right: 10px; }
-      #about-me #container .close i {
-        float: right; }
-        #about-me #container .close i:hover {
-          color: #f2e9dc;
-          cursor: pointer; }
-    #about-me #container.animate {
-      -webkit-animation: animatezoom 0.5s;
-      animation: animatezoom 0.5s; }
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-left: auto;
+  width: 400px; }
+  nav ul {
+    display: flex; }
+    nav ul li {
+      font-style: 'Open Sans', sans-serif;
+      padding: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center; }
+    nav ul .cool-link {
+      display: inline-block;
+      color: #000;
+      text-decoration: none; }
+    nav ul .cool-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width .3s; }
+    nav ul .cool-link:hover::after {
+      width: 100%; }
 
-/*
-    DESIGN ZONE
-*/
-#design-content {
-  grid-area: design;
-  display: none; }
-  #design-content.active {
+#principal {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas: ". . ." ". title ." ". . ."; }
+  #principal #title {
+    grid-area: title;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center; }
-  #design-content .card {
-    background: #fff;
-    display: flex; }
+    #principal #title img {
+      width: 300px; }
+    #principal #title .title-maintext {
+      font-size: 1.5rem; }
+      #principal #title .title-maintext h1 {
+        text-align: center; }
+    #principal #title .title-secondarytext {
+      font-size: 0.8rem; }
+  #principal #background {
+    height: 100vh;
+    position: absolute; }
+    #principal #background #title-background {
+      position: absolute;
+      z-index: -1; }
 
 /*
-    CONTACT ZONE
+    ABOUT ME
+*/
+#about-me {
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 50px;
+  padding: 80px;
+  background: #1c1c1c; }
+  #about-me .content {
+    color: #fff; }
+    #about-me .content h1 {
+      font-size: 3rem; }
+    #about-me .content p {
+      font-size: 1.2rem; }
+
+/*
+    SERVICES ZONE
+*/
+#services {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #services h1 {
+    font-size: 3rem; }
+  #services #design-tabs .tab {
+    display: flex;
+    flex-direction: column; }
+    #services #design-tabs .tab h2 {
+      font-size: 2rem; }
+    #services #design-tabs .tab p {
+      margin-bottom: 50px; }
+    #services #design-tabs .tab img {
+      width: 80%;
+      align-self: center;
+      margin-bottom: 50px;
+      -webkit-box-shadow: 5px 5px 30px 4px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 5px 5px 30px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 5px 5px 30px 4px rgba(0, 0, 0, 0.1); }
+
+/*
+    CONTACT
 */
 #contact {
-  grid-area: contact; }
-  #contact.deactive {
-    width: 0;
-    display: none; }
-  #contact form {
-    margin-right: 20%; }
-    #contact form h1 {
-      text-align: center; }
-    #contact form li {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      width: 100%; }
-      #contact form li h2 {
-        padding: 0;
-        margin: 0;
-        margin-bottom: 15px; }
-      #contact form li .project {
-        display: flex;
-        justify-content: space-between; }
-        #contact form li .project .section {
-          width: 25%; }
-      #contact form li input {
-        padding: 12px;
-        width: 100%;
-        border: 0 none;
-        border: 1.5px solid #eee; }
-      #contact form li textarea {
-        padding: 12px;
-        width: 100%;
-        border: 0 none;
-        border: 1.5px solid #eee; }
-      #contact form li input[type=submit] {
-        border: 0 none;
-        cursor: pointer;
-        -webkit-border-radius: 5px;
-        border-radius: 5px; }
+  margin-bottom: 100px; }
+  #contact .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 20px; }
+    #contact .title img {
+      width: 200px; }
 
-footer {
-  background: #eee;
-  display: flex;
-  text-align: center; }
-  footer .email {
-    margin-left: auto; }
-  footer h2 {
-    padding-right: 20px;
-    padding-left: 20px; }
+/*
+    SCROLL TOP
+*/
+.scrolltop {
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 20px;
+  right: 10px; }
 
-@-webkit-keyframes animatezoom {
-  from {
-    -webkit-transform: scale(0); }
-  to {
-    -webkit-transform: scale(1); } }
+.scroll {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: #b2b2b2;
+  background: rgba(178, 178, 178, 0.7);
+  padding: 20px;
+  text-align: center;
+  margin: 0 0 0 0;
+  cursor: pointer;
+  transition: 0.1s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s; }
 
-@keyframes animatezoom {
-  from {
-    transform: scale(0); }
-  to {
-    transform: scale(1); } }
+.scroll:hover {
+  background: #b2b2b2;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s; }
+
+.scroll:hover .fa {
+  padding-top: -10px; }
+
+.scroll .fa {
+  font-size: 30px;
+  margin-top: -5px;
+  margin-left: 1px;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s; }
