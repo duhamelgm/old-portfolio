@@ -103,7 +103,8 @@ nav {
     #principal #title img {
       width: 300px; }
     #principal #title .title-maintext {
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      font-family: 'Sawarabi Mincho', sans-serif; }
       #principal #title .title-maintext h1 {
         text-align: center; }
     #principal #title .title-secondarytext {
@@ -228,6 +229,8 @@ nav {
   -o-transition: 0.5s; }
 
 @media (max-width: 600px) {
+  body {
+    text-align: center; }
   nav {
     right: 0;
     left: 0;
