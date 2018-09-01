@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+    nav{
+        ul{
+            display: none;
+        }
+        .fas{
+            display: block;
+            float: right;
+            top: 20px;
+            right: 20px;
+        }
+    }
+}

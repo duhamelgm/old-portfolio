@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 @import 'global';
+@import 'preloader';
 
 $color1: #fff;
 $color2: #1c1c1c;
@@ -28,7 +29,7 @@ body{
     margin: 0;
     padding: 0;
     background: #fff;
-    //overflow: hidden;
+    overflow-x: hidden;
 }
 
 /*
@@ -37,14 +38,9 @@ body{
 
 nav{
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin-left: auto;
     width: 400px;
     ul{
-        display: flex;
+        display: inline-flex;
         li{
             font-style: 'Open Sans', sans-serif;
             padding: 20px;
@@ -72,6 +68,10 @@ nav{
             width: 100%;
             //transition: width .3s;
         }
+    }
+
+    .fas{
+        display: none;
     }
 }
 
@@ -118,6 +118,7 @@ nav{
         height: 100vh;
         position: absolute;
         #title-background{
+            max-height: 100vh;
             position: absolute;
             z-index: -1;
         }
@@ -253,3 +254,5 @@ nav{
 	-webkit-transition: 0.5s;
 	-o-transition: 0.5s; 	
 }
+
+@import 'media';

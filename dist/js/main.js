@@ -20,9 +20,7 @@ loader.load(
             if(child.isMesh){
                 objects.push(mesh);
 
-                console.log(child);
-
-                if(child.name === "Dot"){
+                if(child.material.name === "Dot"){
                     child.material = material1;
                 } else {
                     child.material = material2;
@@ -53,11 +51,13 @@ function init(){
     camera.position.z = 7;
 
     window.addEventListener( 'resize', onWindowResize, false );
+
+    onWindowResize();
 }
 
 function onWindowResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
+    windowHalfX = window.innerWidth;
+    windowHalfY = window.innerHeight;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -92,3 +92,13 @@ $(window).scroll(function() {
     }
 });
 $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$("#principal").offset().top},"1000");return false})})
+
+$(window).on('DOMContentLoaded', function() {
+    var Body = $('body');
+    Body.addClass('preloader-site');
+});
+
+$(window).on('load', function() {
+    $('.preloader-wrapper').fadeOut();
+    $('body').removeClass('preloader-site');
+});
