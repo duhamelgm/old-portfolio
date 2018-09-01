@@ -19,13 +19,17 @@
         </div>
     </div>
 
-    <nav>
+    <nav id="navbar" class="deactive">
         <ul>
             <li><a href="#about-me" class="cool-link">Sobre mi</a></li>
             <li><a href="#services" class="cool-link">Servicios</a></li>
             <li><a href="#contact" class="cool-link">Contacto</a></li>
+            <li id="navIcon" class="icon" onclick="navDisplay()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </li>
         </ul>
-        <i class="fas fa-bars fa-2x"></i>
     </nav>
 
     <div id="principal">
@@ -45,7 +49,7 @@
     </div>
 
     <div id="about-me" class="deactive">
-        <div class="container" class="animate">
+        <div class="container">
             <div class="content">
                 <h1>Acerca de mi</h1>
                 <p>
@@ -105,11 +109,11 @@
             <div class="title">
                 <img src="./img/logo.png" alt="">
                 <h1>DUHAMEL GUERRERO</h1>
-                <h1>Web Developer</h1>
+                <h2>Web Developer</h2>
             </div>
             <div class="section">
                 <h1>Habilidades</h1>
-                <p>HTML5/CSS3/JS/Jquery/THREE.js/PHP/Wordpress/Blender/Illustrator</p>
+                <p>HTML5 / CSS3 / JS / Jquery / THREE.js / PHP / Wordpress / Blender / Illustrator<p>
             </div>
             <div class="section">
                 <h1>Contacto</h1>
@@ -122,24 +126,9 @@
             <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
     </div>
 
-    <script src="./js/lib/noframework.waypoints.min.js"></script>
     <script src="./js/lib/three.js"></script>
 
-    <script src="./js/lib/FBXloader.js"></script>
     <script src="./js/lib/GLTFLoader.js"></script>
-
-    <script src="./js/lib/inflate.min.js"></script>
-
-    <script src="./js/shaders/CopyShader.js"></script>
-    <script src="./js/shaders/SSAOShader.js"></script>
-
-    <script src="./js/postprocessing/EffectComposer.js"></script>
-    <script src="./js/postprocessing/MaskPass.js"></script>
-    <script src="./js/postprocessing/RenderPass.js"></script>
-    <script src="./js/postprocessing/ShaderPass.js"></script>
-    <script src="./js/postprocessing/SSAOPass.js"></script>
-
-    <script src="js/lib/SceneUtils.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 

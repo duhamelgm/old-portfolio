@@ -9,9 +9,7 @@ var material1 = new THREE.MeshBasicMaterial({ color: 0xfac37f})
 var material2 = new THREE.MeshBasicMaterial({ color: 0xb8d8d8})
 
 loader.load(
-	// resource URL
-	'js/models/003.gltf',
-	// called when the resource is loaded
+	'js/models/logo.gltf',
 	function ( gltf ) {
 
         mesh = gltf.scene;
@@ -56,11 +54,13 @@ function init(){
 }
 
 function onWindowResize() {
-    windowHalfX = window.innerWidth;
-    windowHalfY = window.innerHeight;
+    windowX = window.innerWidth;
+    windowY = window.innerHeight;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
+
+
 }
 
 function animate() {
@@ -81,7 +81,11 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
     $('html, body').animate({
       scrollTop: $($.attr(this, 'href')).offset().top
-     }, 1000);
+    }, 1000);
+
+    if(windowX<=600){
+        navDisplay();
+    }
 });
 
 $(window).scroll(function() {
@@ -102,3 +106,31 @@ $(window).on('load', function() {
     $('.preloader-wrapper').fadeOut();
     $('body').removeClass('preloader-site');
 });
+
+function navDisplay(){
+
+    var navbar = document.getElementById("navbar");
+
+    if(navbar.className === "active"){
+        navbar.className = "deactive";
+        document.body.style.overflow = "unset";
+        document.body.style.overflowX = "hidden";
+        $('body').unbind('touchmove')
+    } else {
+        navbar.className = "active";
+        document.body.style.overflow = "hidden";
+        $('body').bind('touchmove', function(e){e.preventDefault()})
+    }
+
+    var x = document.getElementById("navIcon");
+
+    x.classList.toggle("change");
+}
+
+var navMenu = document.getElementById('navbar');
+
+window.onclick = function(event) {
+    if (event.target == navMenu) {
+        navDisplay();
+    }
+}
