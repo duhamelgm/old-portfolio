@@ -277,4 +277,86 @@ nav{
 	-o-transition: 0.5s; 	
 }
 
+/*
+    LENGUAGE
+*/
+
+#lenguage{
+    margin-bottom: 40px;
+    margin-left: 3%;
+    #btn-bar{
+        display: inline-flex;
+        border: rgb(77, 77, 77) solid 1px;
+        border-radius: 12px;
+        transition: background 500ms;
+
+        a{
+            border-radius: 11px;
+
+            button{
+                padding: 8px 12px;
+                border: none;
+                background: none;
+                font-size: 0.9rem;
+                font-style: 'Open Sans', sans-serif;
+                border-radius: 11px;
+            }
+
+            &:not(:last-child){
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+
+                &.active{
+                    background: #ccc;
+                    :hover{
+                        cursor: pointer;
+                    }
+                }
+
+                &.deactive{
+                    :hover{
+                        transition: background 500ms;
+                        background: #ccc;
+                        cursor: pointer;
+                    }
+                }
+
+                button{
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    transition: background 500ms;
+                }
+            }
+
+
+            &:last-child{
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                
+                &.active{
+                    background: #ccc;
+                    :hover{
+                        cursor: pointer;
+                    }
+                }
+
+                &.deactive{
+                    :hover{
+                        transition: background 500ms;
+                        background: #ccc;
+                        cursor: pointer;
+                    }
+                }
+
+                button{
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    transition: background 500ms;
+                }
+            }
+        }
+
+    }
+}
+
 @import 'media';

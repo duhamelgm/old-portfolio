@@ -24,6 +24,9 @@ a {
 i:hover {
   cursor: pointer; }
 
+button:focus {
+  outline: 0; }
+
 body.preloader-site {
   overflow: hidden; }
 
@@ -228,6 +231,57 @@ nav {
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s; }
+
+/*
+    LENGUAGE
+*/
+#lenguage {
+  margin-bottom: 40px;
+  margin-left: 3%; }
+  #lenguage #btn-bar {
+    display: inline-flex;
+    border: #4d4d4d solid 1px;
+    border-radius: 12px;
+    transition: background 500ms; }
+    #lenguage #btn-bar a {
+      border-radius: 11px; }
+      #lenguage #btn-bar a button {
+        padding: 8px 12px;
+        border: none;
+        background: none;
+        font-size: 0.9rem;
+        font-style: 'Open Sans', sans-serif;
+        border-radius: 11px; }
+      #lenguage #btn-bar a:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0; }
+        #lenguage #btn-bar a:not(:last-child).active {
+          background: #ccc; }
+          #lenguage #btn-bar a:not(:last-child).active :hover {
+            cursor: pointer; }
+        #lenguage #btn-bar a:not(:last-child).deactive :hover {
+          transition: background 500ms;
+          background: #ccc;
+          cursor: pointer; }
+        #lenguage #btn-bar a:not(:last-child) button {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          transition: background 500ms; }
+      #lenguage #btn-bar a:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0; }
+        #lenguage #btn-bar a:last-child.active {
+          background: #ccc; }
+          #lenguage #btn-bar a:last-child.active :hover {
+            cursor: pointer; }
+        #lenguage #btn-bar a:last-child.deactive :hover {
+          transition: background 500ms;
+          background: #ccc;
+          cursor: pointer; }
+        #lenguage #btn-bar a:last-child button {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          transition: background 500ms; }
 
 @media (max-width: 600px) {
   body {

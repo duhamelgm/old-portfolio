@@ -9,7 +9,7 @@ var material1 = new THREE.MeshBasicMaterial({ color: 0xfac37f})
 var material2 = new THREE.MeshBasicMaterial({ color: 0xb8d8d8})
 
 loader.load(
-	'js/models/logo.gltf',
+	'/dist/js/models/logo.gltf',
 	function ( gltf ) {
 
         mesh = gltf.scene;

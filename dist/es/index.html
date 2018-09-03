@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="description" content="Duhamel Guerrero Portfolio">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Web Design, Freelance">
+    <meta name="author" content="Duhamel Guerrero">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+
+    <title>Duhamel Guerrero</title>
+</head>
+<body>
+    <div class="preloader-wrapper">
+        <div class="preloader">
+            <img src="../img/preloader.gif" alt="NILA">
+            <h1>Loading</h1>
+        </div>
+    </div>
+
+    <nav id="navbar" class="deactive">
+        <ul>
+            <li><a href="#about-me" class="cool-link">Sobre mi</a></li>
+            <li><a href="#services" class="cool-link">Servicios</a></li>
+            <li><a href="#contact" class="cool-link">Contacto</a></li>
+            <li id="navIcon" class="icon" onclick="navDisplay()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="principal">
+        <div id="title" class="activated">
+            <img src="../img/logo.png" alt="">
+            <div class="title-maintext">
+                <h1>DUHAMEL GUERRERO</h1>
+            </div>
+            <div class="title-secondarytext">
+                <h1>Web Developer</h1>
+            </div>
+        </div>
+    
+        <div id="background">
+            <div id="title-background" class="activated"></div>
+        </div>
+    </div>
+
+    <div id="about-me" class="deactive">
+        <div class="container">
+            <div class="content">
+                <h1>Acerca de mi</h1>
+                <p>
+                    Entre en el mundo del diseño y la programacion a la corta edad de 15 años
+                    y desde entonces he estudiado y practicado constantemente para poder siempre obtener resultados
+                    que se puedan considerar practicos y satisfactorios, gracias a esto pude comprender que mi pasion
+                    era el diseño grafico, expresarse artisticamente con las nuevas tecnologias y mantenerme al dia con las
+                    ultimas tendencias a nivel global
+                </p>
+                <p>
+                    Mi principal objetivo es poder cumplir los proyectos de mis clientes, cumpliendo sus expectativas y obteniendo resultados
+                    satisfactorios para ambas partes
+                </p>
+                <h3>Espero oir pronto de ti, Un saludo!</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div id="services" class="deactive">
+        <div class="title">        
+            <h1>Servicios</h1>
+        </div>
+
+        <div id="design-tabs" class="deactive">
+            <div class="tab">
+                <h2>Crear tu imagen</h2>
+                <p>
+                    No hay nada como una agradable e iconica interfaz
+                    que pueda capturar la atencion del cliente. Los modelos 3D son novedosos
+                    y llamativos, dejame adaptar tu marca al mundo del 3D para que tengas una
+                    pagina web increible que se adecue a tu empresa y a tus gustos.
+                </p>
+                <img src="../img/design.png" alt="">
+            </div>
+            <div class="tab">
+                <h2>Actualiza tu sitio</h2>
+                <p>
+                    Ya tienes tu interfaz planeada y hecha, o simplemente quieres hacerle
+                    mantenimiento a tu pagina? dejame adaptar tu diseño y actualizar tu sitio web
+                </p>
+                <img src="../img/adapt.png" alt="">
+            </div>
+            <div class="tab">
+                <h2>Mantenimiento del Servidor</h2>
+                <p>
+                    Necesitas implementar alguna API de pago para tu ecommerce? Hacerle mantenimiento a
+                    tu web desactualizada? contactame y me encargare de añadir y optimizar multitud de apis
+                    y frameworks
+                </p>
+                <img src="../img/server.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="deactive">
+        <div class="container">
+            <div class="title">
+                <img src="../img/logo.png" alt="">
+                <h1>DUHAMEL GUERRERO</h1>
+                <h2>Web Developer</h2>
+            </div>
+            <div class="section">
+                <h1>Habilidades</h1>
+                <p>HTML5 / CSS3 / JS / Jquery / THREE.js / PHP / Wordpress / Blender / Illustrator<p>
+            </div>
+            <div class="section">
+                <h1>Contacto</h1>
+                <p>duhamelgm@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
+
+    <div id="lenguage">
+        <div id="btn-bar">
+            <a href="#" class="active"><button id="es">SPANISH</button></a>
+            <a href="../index.html" class="deactive"><button id="en">ENGLISH</button></a>
+        </div>
+    </div>
+
+    <script src="../js/lib/three.js"></script>
+
+    <script src="../js/lib/GLTFLoader.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

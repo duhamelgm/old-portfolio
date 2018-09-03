@@ -22,3 +22,7 @@ a{
 i:hover{
     cursor: pointer;
 }
+
+button:focus{
+    outline: 0;
+}
